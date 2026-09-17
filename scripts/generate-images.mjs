@@ -25,8 +25,27 @@ const defs = (s, id) => `
   <linearGradient id="glass${id}" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0%" stop-color="#ffffff" stop-opacity=".95"/><stop offset="18%" stop-color="${s.liquid}"/><stop offset="52%" stop-color="${s.deep}"/><stop offset="78%" stop-color="${s.liquid}"/><stop offset="100%" stop-color="#ffffff" stop-opacity=".8"/>
   </linearGradient>
+  <!-- Finition tube métallique dégradée, façon vernis satiné -->
+  <linearGradient id="metal${id}" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".9"/>
+    <stop offset="16%" stop-color="${s.liquid}"/>
+    <stop offset="48%" stop-color="${s.deep}"/>
+    <stop offset="78%" stop-color="${s.ink}"/>
+    <stop offset="100%" stop-color="${s.deep}"/>
+  </linearGradient>
   <linearGradient id="cap${id}" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#F7F2EE"/><stop offset="35%" stop-color="${s.deep}"/><stop offset="70%" stop-color="${s.ink}"/><stop offset="100%" stop-color="#EFE6DF"/>
+    <stop offset="0%" stop-color="#F7F2EE"/><stop offset="35%" stop-color="#D9B27C"/><stop offset="70%" stop-color="#B4884A"/><stop offset="100%" stop-color="#F1DDBB"/>
+  </linearGradient>
+  <linearGradient id="capv${id}" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#F1DDBB"/><stop offset="45%" stop-color="#D9B27C"/><stop offset="100%" stop-color="#A87A3E"/>
+  </linearGradient>
+  <!-- Reflet diagonal façon studio, commun aux deux formats -->
+  <linearGradient id="sheen${id}" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+    <stop offset="38%" stop-color="#ffffff" stop-opacity="0"/>
+    <stop offset="47%" stop-color="#ffffff" stop-opacity=".55"/>
+    <stop offset="56%" stop-color="#ffffff" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
   </linearGradient>
   <filter id="grain${id}"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.13"/></feComponentTransfer></filter>
   <filter id="soft${id}" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26"/></filter>`;
@@ -35,33 +54,59 @@ function bottle(s, type) {
   const id = s.slug.replace(/-/g, '') + type;
   const W = 900, H = 1200;
   const isMist = type === 'mist';
-  const bw = isMist ? 250 : 300, bh = isMist ? 560 : 470;
-  const bx = (W - bw) / 2, by = isMist ? 470 : 560;
+  const bw = isMist ? 250 : 296, bh = isMist ? 560 : 620;
+  const bx = (W - bw) / 2, by = isMist ? 470 : 400;
+
+  /* --- Brume : flacon en verre, bouchon doré arrondi, buse latérale --- */
+  const mistMarkup = `
+  <rect x="${bx+bw/2-34}" y="${by-150}" width="68" height="152" rx="10" fill="${s.liquid}" opacity=".5"/>
+  <rect x="${bx+bw/2-50}" y="${by-198}" width="100" height="62" rx="20" fill="url(#cap${id})"/>
+  <rect x="${bx+bw/2-52}" y="${by-172}" width="104" height="16" fill="${s.ink}" opacity=".92"/>
+  <text x="${bx+bw/2}" y="${by-161}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="7.5" letter-spacing="2" fill="#EFCE93">MAISON ROSÉ</text>
+  <rect x="${bx+bw/2+6}" y="${by-214}" width="46" height="20" rx="7" fill="${s.ink}" opacity=".85" transform="rotate(-6 ${bx+bw/2+6} ${by-214})"/>
+  <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="46" fill="url(#glass${id})"/>
+  <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="46" fill="url(#sheen${id})"/>
+  <rect x="${bx+16}" y="${by+18}" width="22" height="${bh-50}" rx="11" fill="#fff" opacity=".5"/>
+  <rect x="${bx+26}" y="${by+150}" width="${bw-52}" height="250" rx="12" fill="#FFFBF7" opacity=".94"/>
+  <text x="450" y="${by+188}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="3" fill="${s.deep}">MAISON ROSÉ</text>
+  <text x="450" y="${by+225}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="28" letter-spacing="1.5" fill="${s.ink}">${s.name.split(' ')[0]}</text>
+  <text x="450" y="${by+263}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="28" letter-spacing="1.5" fill="${s.ink}">${s.name.split(' ').slice(1).join(' ')}</text>
+  <line x1="${bx+70}" y1="${by+288}" x2="${bx+bw-70}" y2="${by+288}" stroke="${s.deep}" stroke-width="1.2" opacity=".6"/>
+  <text x="450" y="${by+320}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12.5" letter-spacing="3" fill="${s.deep}">BRUME PARFUMÉE</text>
+  <text x="450" y="${by+350}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="2.2" fill="${s.ink}" opacity=".65">${s.notes}</text>
+  <text x="450" y="${by+bh-26}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="9.5" letter-spacing="1.5" fill="${s.ink}" opacity=".55">250 ML</text>`;
+
+  /* --- Lait : tube métallique dégradé, capuchon flip-top doré ------- */
+  const shoulderTop = by, capH = 66, neckW = 76;
+  const tubePath = `M ${bx+10} ${shoulderTop}
+           C ${bx-8} ${shoulderTop+70}, ${bx+bw/2-neckW-22} ${bh*0.62+shoulderTop}, ${bx+bw/2-neckW} ${bh+shoulderTop-capH}
+           L ${bx+bw/2+neckW} ${bh+shoulderTop-capH}
+           C ${bx+bw/2+neckW+22} ${bh*0.62+shoulderTop}, ${bx+bw+8} ${shoulderTop+70}, ${bx+bw-10} ${shoulderTop}
+           Z`;
+  const lotionMarkup = `
+  <path d="${tubePath}" fill="url(#metal${id})"/>
+  <path d="M ${bx+22} ${shoulderTop+2} L ${bx+bw-22} ${shoulderTop+2} L ${bx+bw-30} ${shoulderTop+22} L ${bx+30} ${shoulderTop+22} Z" fill="${s.ink}" opacity=".5"/>
+  <path d="${tubePath}" fill="url(#sheen${id})"/>
+  <text x="450" y="${shoulderTop+96}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10.5" letter-spacing="3" fill="#fff" opacity=".85">MAISON ROSÉ</text>
+  <text x="450" y="${shoulderTop+146}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="32" letter-spacing="0.5" fill="#fff">${s.name.split(' ')[0]}</text>
+  <text x="450" y="${shoulderTop+186}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="32" letter-spacing="0.5" fill="#fff">${s.name.split(' ').slice(1).join(' ')}</text>
+  <text x="450" y="${bh+shoulderTop-capH-64}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" letter-spacing="2" fill="#fff" opacity=".8">LOTION PARFUMÉE</text>
+  <text x="450" y="${bh+shoulderTop-capH-40}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="10" letter-spacing="1.5" fill="#fff" opacity=".7">236 ML</text>
+  <rect x="${bx+bw/2-68}" y="${bh+shoulderTop-capH-14}" width="136" height="18" fill="${s.ink}" opacity=".9"/>
+  <text x="450" y="${bh+shoulderTop-capH-1}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="7.5" letter-spacing="2" fill="#EFCE93">MAISON ROSÉ</text>
+  <rect x="${bx+bw/2-70}" y="${bh+shoulderTop-capH}" width="140" height="${capH}" rx="26" fill="url(#capv${id})"/>
+  <rect x="${bx+bw/2-70}" y="${bh+shoulderTop-capH}" width="140" height="${capH*0.4}" rx="18" fill="#fff" opacity=".28"/>`;
+
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${s.name}">
 <defs>${defs(s, id)}</defs>
 <rect width="${W}" height="${H}" fill="url(#bgg${id})"/>
 <ellipse cx="450" cy="330" rx="330" ry="330" fill="url(#flash${id})"/>
 <g opacity=".28" fill="none" stroke="${s.deep}" stroke-width="1.5">
-  <ellipse cx="450" cy="1010" rx="330" ry="52"/><ellipse cx="450" cy="1010" rx="250" ry="38"/>
+  <ellipse cx="450" cy="1090" rx="330" ry="52"/><ellipse cx="450" cy="1090" rx="250" ry="38"/>
 </g>
-<ellipse cx="470" cy="1022" rx="${bw*0.85}" ry="34" fill="${s.ink}" opacity=".22" filter="url(#soft${id})"/>
+<ellipse cx="470" cy="1100" rx="${bw*0.85}" ry="34" fill="${s.ink}" opacity=".22" filter="url(#soft${id})"/>
 <g>
-  ${isMist ? `
-  <rect x="${bx+bw/2-30}" y="${by-118}" width="60" height="120" rx="8" fill="${s.liquid}" opacity=".55"/>
-  <rect x="${bx+bw/2-46}" y="${by-160}" width="92" height="58" rx="14" fill="url(#cap${id})"/>
-  <rect x="${bx+bw/2-22}" y="${by-176}" width="44" height="22" rx="7" fill="${s.ink}" opacity=".85"/>` : `
-  <rect x="${bx+bw/2-36}" y="${by-96}" width="72" height="98" rx="10" fill="${s.liquid}" opacity=".6"/>
-  <rect x="${bx+bw/2-58}" y="${by-138}" width="116" height="48" rx="16" fill="url(#cap${id})"/>
-  <rect x="${bx+bw/2+18}" y="${by-160}" width="86" height="18" rx="9" fill="${s.ink}" opacity=".8"/>`}
-  <rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${isMist ? 44 : 60}" fill="url(#glass${id})"/>
-  <rect x="${bx+14}" y="${by+16}" width="26" height="${bh-46}" rx="13" fill="#fff" opacity=".55"/>
-  <rect x="${bx+bw-46}" y="${by+40}" width="14" height="${bh-110}" rx="7" fill="#fff" opacity=".3"/>
-  <rect x="${bx+26}" y="${by+ (isMist?150:110)}" width="${bw-52}" height="${isMist?250:220}" rx="12" fill="#FFFBF7" opacity=".93"/>
-  <text x="450" y="${by+(isMist?205:165)}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" letter-spacing="2" fill="${s.ink}">${s.name.split(' ')[0]}</text>
-  <text x="450" y="${by+(isMist?245:205)}" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" letter-spacing="2" fill="${s.ink}">${s.name.split(' ').slice(1).join(' ')}</text>
-  <line x1="${bx+70}" y1="${by+(isMist?272:232)}" x2="${bx+bw-70}" y2="${by+(isMist?272:232)}" stroke="${s.deep}" stroke-width="1.2" opacity=".6"/>
-  <text x="450" y="${by+(isMist?306:262)}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" fill="${s.deep}">${isMist ? 'BRUME PARFUMÉE' : 'LAIT PARFUMÉ'}</text>
-  <text x="450" y="${by+(isMist?336:290)}" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" letter-spacing="2.5" fill="${s.ink}" opacity=".65">${s.notes}</text>
+  ${isMist ? mistMarkup : lotionMarkup}
 </g>
 <rect width="${W}" height="${H}" filter="url(#grain${id})" opacity=".5" style="mix-blend-mode:multiply"/>
 </svg>`;
