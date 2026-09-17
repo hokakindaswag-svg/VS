@@ -166,14 +166,14 @@ p{margin:0}
 /* =========================================================================
    HERO
    ========================================================================= */
-.hero{position:relative;background:var(--blush);overflow:hidden}
+.hero{position:relative;background:var(--cream);overflow:hidden}
 .hero-media{position:relative;aspect-ratio:4/5;max-height:74vh;width:100%}
 .hero-media img{width:100%;height:100%;object-fit:cover}
 .hero-media::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(255,255,255,.12) 0%,rgba(255,250,248,.05) 32%,rgba(253,248,244,.72) 62%,rgba(253,248,244,.97) 92%,var(--cream) 100%);
 }
-.hero-body{position:relative;z-index:2;margin-top:-18vh;padding:0 var(--pad) 46px;text-align:center}
+.hero-body{position:relative;z-index:2;margin-top:-13vh;padding:0 var(--pad) 46px;text-align:center}
 .hero-body .display{margin-bottom:16px}
 .hero-body .lede{margin:0 auto 26px;font-size:15.5px}
 .hero-cta{display:flex;flex-direction:column;gap:10px;max-width:400px;margin:0 auto}
