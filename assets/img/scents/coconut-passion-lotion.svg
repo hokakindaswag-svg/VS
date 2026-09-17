@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="img" aria-label="COCONUT PASSION">
+<defs>
+  <linearGradient id="bggcoconutpassionlotion" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0%" stop-color="#FFFDFB"/><stop offset="55%" stop-color="#F7EBD8"/><stop offset="100%" stop-color="#C08A5022"/>
+  </linearGradient>
+  <radialGradient id="flashcoconutpassionlotion" cx="50%" cy="28%" r="62%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/><stop offset="60%" stop-color="#ffffff" stop-opacity=".12"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="glasscoconutpassionlotion" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity=".95"/><stop offset="18%" stop-color="#F3E1C4"/><stop offset="52%" stop-color="#C08A50"/><stop offset="78%" stop-color="#F3E1C4"/><stop offset="100%" stop-color="#ffffff" stop-opacity=".8"/>
+  </linearGradient>
+  <linearGradient id="capcoconutpassionlotion" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#F7F2EE"/><stop offset="35%" stop-color="#C08A50"/><stop offset="70%" stop-color="#6D4A24"/><stop offset="100%" stop-color="#EFE6DF"/>
+  </linearGradient>
+  <filter id="graincoconutpassionlotion"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.13"/></feComponentTransfer></filter>
+  <filter id="softcoconutpassionlotion" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26"/></filter></defs>
+<rect width="900" height="1200" fill="url(#bggcoconutpassionlotion)"/>
+<ellipse cx="450" cy="330" rx="330" ry="330" fill="url(#flashcoconutpassionlotion)"/>
+<g opacity=".28" fill="none" stroke="#C08A50" stroke-width="1.5">
+  <ellipse cx="450" cy="1010" rx="330" ry="52"/><ellipse cx="450" cy="1010" rx="250" ry="38"/>
+</g>
+<ellipse cx="470" cy="1022" rx="255" ry="34" fill="#6D4A24" opacity=".22" filter="url(#softcoconutpassionlotion)"/>
+<g>
+  
+  <rect x="414" y="464" width="72" height="98" rx="10" fill="#F3E1C4" opacity=".6"/>
+  <rect x="392" y="422" width="116" height="48" rx="16" fill="url(#capcoconutpassionlotion)"/>
+  <rect x="468" y="400" width="86" height="18" rx="9" fill="#6D4A24" opacity=".8"/>
+  <rect x="300" y="560" width="300" height="470" rx="60" fill="url(#glasscoconutpassionlotion)"/>
+  <rect x="314" y="576" width="26" height="424" rx="13" fill="#fff" opacity=".55"/>
+  <rect x="554" y="600" width="14" height="360" rx="7" fill="#fff" opacity=".3"/>
+  <rect x="326" y="670" width="248" height="220" rx="12" fill="#FFFBF7" opacity=".93"/>
+  <text x="450" y="725" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" letter-spacing="2" fill="#6D4A24">COCONUT</text>
+  <text x="450" y="765" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" letter-spacing="2" fill="#6D4A24">PASSION</text>
+  <line x1="370" y1="792" x2="530" y2="792" stroke="#C08A50" stroke-width="1.2" opacity=".6"/>
+  <text x="450" y="822" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" letter-spacing="3" fill="#C08A50">LAIT PARFUMÉ</text>
+  <text x="450" y="850" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="11" letter-spacing="2.5" fill="#6D4A24" opacity=".65">COCO · VANILLE · CHALEUR</text>
+</g>
+<rect width="900" height="1200" filter="url(#graincoconutpassionlotion)" opacity=".5" style="mix-blend-mode:multiply"/>
+</svg>

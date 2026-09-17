@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+<defs>
+  <linearGradient id="g1" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0%" stop-color="#FFFBF8"/><stop offset="60%" stop-color="#F7DCE3"/><stop offset="100%" stop-color="#D98FA6"/></linearGradient>
+  <filter id="gs" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="30"/></filter>
+  <filter id="gg"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.12"/></feComponentTransfer></filter>
+</defs>
+<rect width="1200" height="900" fill="url(#g1)"/>
+<circle cx="880" cy="220" r="240" fill="#fff" opacity=".55" filter="url(#gs)"/>
+<g transform="translate(600 480)">
+  <ellipse cx="0" cy="250" rx="330" ry="46" fill="#8E1F3E" opacity=".2" filter="url(#gs)"/>
+  <rect x="-260" y="-60" width="520" height="300" rx="18" fill="#FCEFF3"/>
+  <rect x="-260" y="-60" width="520" height="52" rx="18" fill="#B7365C" opacity=".9"/>
+  <rect x="-40" y="-60" width="80" height="300" fill="#B7365C" opacity=".35"/>
+  <path d="M0 -60 C -70 -150, -170 -90, -20 -62 C -120 -190, 20 -180, 0 -60 Z" fill="#B7365C"/>
+  <path d="M0 -60 C 70 -150, 170 -90, 20 -62 C 120 -190, -20 -180, 0 -60 Z" fill="#D4506F"/>
+</g>
+<rect width="1200" height="900" filter="url(#gg)" opacity=".5" style="mix-blend-mode:multiply"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1066" width="600" height="1066">
+<defs>
+  <linearGradient id="u2" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0%" stop-color="#FFFCFA"/><stop offset="55%" stop-color="#FBD5CB"/><stop offset="100%" stop-color="#D4425A"/></linearGradient>
+  <radialGradient id="uf2" cx="50%" cy="25%" r="60%"><stop offset="0%" stop-color="#fff" stop-opacity=".9"/><stop offset="100%" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <filter id="ub2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="28"/></filter>
+  <filter id="un2"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.14"/></feComponentTransfer></filter>
+</defs>
+<rect width="600" height="1066" fill="url(#u2)"/>
+<ellipse cx="300" cy="280" rx="300" ry="280" fill="url(#uf2)"/>
+<circle cx="150" cy="820" r="140" fill="#D4425A" opacity=".25" filter="url(#ub2)"/>
+<g transform="translate(300 600)">
+  <ellipse cx="0" cy="220" rx="150" ry="28" fill="#000" opacity=".15" filter="url(#ub2)"/>
+  <rect x="-80" y="-140" width="160" height="350" rx="34" fill="#FFF9F6" opacity=".92"/>
+  <rect x="-30" y="-200" width="60" height="64" rx="10" fill="#D4425A" opacity=".5"/>
+  <rect x="-44" y="-238" width="88" height="44" rx="14" fill="#D4425A"/>
+  <rect x="-56" y="-40" width="112" height="150" rx="10" fill="#FBD5CB"/>
+</g>
+<rect width="600" height="1066" filter="url(#un2)" opacity=".5" style="mix-blend-mode:multiply"/>
+</svg>

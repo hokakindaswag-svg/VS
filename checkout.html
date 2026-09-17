@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Commande · Maison Rosé</title>
+<meta name="description" content="Paiement sécurisé — Maison Rosé.">
+<meta name="theme-color" content="#B02A4E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B02A4E'/%3E%3Ctext x='16' y='23' font-size='18' font-family='Georgia' fill='%23FDF8F4' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main class="cart-page">
+  <div class="wrap">
+    <h1 class="h-section" style="margin-bottom:6px">Finaliser ma <span class="italic">commande</span>.</h1>
+    <p class="tiny" style="margin-bottom:24px">Paiement sécurisé · Livraison offerte dès 25 €</p>
+    <div class="cart-layout">
+      <form data-checkout-form novalidate>
+        <div style="display:grid;gap:10px;margin-bottom:26px">
+          <button type="button" class="btn btn-dark btn-block">Payer avec Apple Pay</button>
+          <button type="button" class="btn btn-ghost btn-block">Payer avec PayPal</button>
+          <p class="tiny" style="text-align:center;margin-top:6px">ou paiement par carte</p>
+        </div>
+        <div data-checkout-fields></div>
+      </form>
+      <aside class="summary" data-checkout-summary></aside>
+    </div>
+  </div>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/checkout.js"></script>
+</body>
+</html>

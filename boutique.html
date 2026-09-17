@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Boutique — Brumes &amp; laits parfumés · Maison Rosé</title>
+<meta name="description" content="Toute la collection : 8 parfums, brumes 9,99 € et laits 12,99 €. 2 au choix pour 19,99 €.">
+<meta name="theme-color" content="#B02A4E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B02A4E'/%3E%3Ctext x='16' y='23' font-size='18' font-family='Georgia' fill='%23FDF8F4' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <section class="wrap shop-head">
+    <p class="eyebrow" data-shop-eyebrow>La collection</p>
+    <h1 class="h-section" data-shop-title>Tout le <span class="italic">catalogue</span>.</h1>
+    <p class="lede" style="margin:12px auto 0">16 produits · 8 parfums · brumes et laits. 2 au choix pour 19,99 €.</p>
+  </section>
+  <div class="wrap">
+    <div class="filters" data-shop-filters></div>
+    <div class="sort-row">
+      <p class="tiny" data-shop-count></p>
+      <label class="sr" for="sort">Trier</label>
+      <select id="sort" data-sort>
+        <option value="pop">Les plus aimés</option>
+        <option value="asc">Prix croissant</option>
+        <option value="desc">Prix décroissant</option>
+        <option value="az">A → Z</option>
+      </select>
+    </div>
+    <div class="grid grid-2" data-shop-grid></div>
+  </div>
+  <section class="section duo-band" style="margin-top:44px">
+    <div class="wrap" style="text-align:center">
+      <div class="duo-price-badge" style="margin-bottom:20px">19,99 €<span>les 2</span></div>
+      <h2 class="h-section">Deux, c’est mieux <span class="italic">qu’un.</span></h2>
+      <p class="lede" style="margin:12px auto 22px">Mixe. Assortis. Superpose. Toutes les combinaisons comptent.</p>
+      <a class="btn btn-cherry" href="duo.html">Composer mon duo</a>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/shop.js"></script>
+</body>
+</html>

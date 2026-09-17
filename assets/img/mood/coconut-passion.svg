@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+<defs>
+  <linearGradient id="bggmcoconutpassion" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0%" stop-color="#FFFDFB"/><stop offset="55%" stop-color="#F7EBD8"/><stop offset="100%" stop-color="#C08A5022"/>
+  </linearGradient>
+  <radialGradient id="flashmcoconutpassion" cx="50%" cy="28%" r="62%">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity=".85"/><stop offset="60%" stop-color="#ffffff" stop-opacity=".12"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="glassmcoconutpassion" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#ffffff" stop-opacity=".95"/><stop offset="18%" stop-color="#F3E1C4"/><stop offset="52%" stop-color="#C08A50"/><stop offset="78%" stop-color="#F3E1C4"/><stop offset="100%" stop-color="#ffffff" stop-opacity=".8"/>
+  </linearGradient>
+  <linearGradient id="capmcoconutpassion" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#F7F2EE"/><stop offset="35%" stop-color="#C08A50"/><stop offset="70%" stop-color="#6D4A24"/><stop offset="100%" stop-color="#EFE6DF"/>
+  </linearGradient>
+  <filter id="grainmcoconutpassion"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="0.13"/></feComponentTransfer></filter>
+  <filter id="softmcoconutpassion" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="26"/></filter></defs>
+<rect width="800" height="1000" fill="url(#bggmcoconutpassion)"/>
+<ellipse cx="400" cy="300" rx="380" ry="340" fill="url(#flashmcoconutpassion)"/>
+<g opacity=".5">
+  <circle cx="230" cy="740" r="150" fill="#C08A50" opacity=".22" filter="url(#softmcoconutpassion)"/>
+  <circle cx="600" cy="420" r="190" fill="#F3E1C4" opacity=".5" filter="url(#softmcoconutpassion)"/>
+</g>
+<g transform="translate(400 520)" opacity=".9">
+  <ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(0)"/><ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(45)"/><ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(90)"/><ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(135)"/><ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(180)"/><ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(225)"/><ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(270)"/><ellipse cx="0" cy="-120" rx="58" ry="140" fill="#C08A50" opacity=".18" transform="rotate(315)"/>
+  <circle r="46" fill="#F3E1C4"/><circle r="22" fill="#C08A50" opacity=".55"/>
+</g>
+<rect x="60" y="60" width="680" height="880" fill="none" stroke="#FFFDFB" stroke-width="2" opacity=".7"/>
+<rect width="800" height="1000" filter="url(#grainmcoconutpassion)" opacity=".55" style="mix-blend-mode:multiply"/>
+</svg>

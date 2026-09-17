@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2 au choix pour 19,99 € — Compose ton duo · Maison Rosé</title>
+<meta name="description" content="Choisis deux produits parmi 16 : 2 brumes, 2 laits ou 1 de chaque. 19,99 € le duo.">
+<meta name="theme-color" content="#B02A4E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B02A4E'/%3E%3Ctext x='16' y='23' font-size='18' font-family='Georgia' fill='%23FDF8F4' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+  <section class="section duo-band">
+    <div class="wrap">
+      <div class="duo-layout">
+        <div>
+          <div class="duo-price-badge">19,99 €<span>les 2</span></div>
+          <p class="eyebrow" style="margin-top:22px">Mix &amp; match</p>
+          <h1 class="h-section">Deux, c’est mieux <span class="italic">qu’un.</span></h1>
+          <p class="lede" style="margin-top:14px">Mixe. Assortis. Superpose. Deux brumes, deux laits, ou un de chaque — 19,99 € le duo.</p>
+          <ul style="list-style:none;padding:0;margin:20px 0 0;display:grid;gap:8px">
+            <li class="tiny">✓ 1 produit = 9,99 €</li>
+            <li class="tiny">✓ 2 produits = 19,99 €</li>
+            <li class="tiny">✓ Offre appliquée automatiquement au panier</li>
+          </ul>
+        </div>
+        <div data-duo-builder></div>
+      </div>
+    </div>
+  </section>
+  <section class="section section-cream">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Nos combinaisons</p>
+        <h2 class="h-section">Les duos <span class="italic">qu’on adore</span>.</h2>
+        <p class="lede">Pas d’idée ? Commence par là.</p>
+      </div>
+      <div class="scroller" data-layer-grid></div>
+    </div>
+  </section>
+  <section class="section section-white">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="eyebrow">Les 16 produits</p>
+        <h2 class="h-section">Tout est <span class="italic">éligible</span>.</h2>
+      </div>
+      <div class="grid grid-2" data-duo-grid></div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/duo.js"></script>
+</body>
+</html>
