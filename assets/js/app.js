@@ -136,7 +136,7 @@
   const NAV = [
     { href: 'boutique.html', label: 'Boutique', sub: 'Tout le catalogue' },
     { href: 'boutique.html?type=mist', label: 'Brumes', sub: '9,99 € · 250 ml' },
-    { href: 'boutique.html?type=lotion', label: 'Laits', sub: '12,99 € · 236 ml' },
+    { href: 'boutique.html?type=lotion', label: 'Laits', sub: '9,99 € · 236 ml' },
     { href: 'parfums.html', label: 'Les parfums', sub: 'Les 8 signatures' },
   ];
 
@@ -144,8 +144,8 @@
     const bar = `<div class="announce"><div class="announce-track">${
       Array(2).fill(
         `<span>♡ 2 produits au choix pour 19,99 € — mix &amp; match ♡</span>
-         <span>Livraison offerte dès 25 €</span>
-         <span>♡ Brume 9,99 € · Lait 12,99 € ♡</span>
+         <span>Livraison offerte, sans minimum</span>
+         <span>♡ Brume &amp; Lait 9,99 € ♡</span>
          <span>Retours gratuits sous 30 jours</span>`
       ).join('')
     }</div></div>`;
@@ -349,7 +349,7 @@
     const filters = [
       { id: 'all', label: 'Tout' },
       { id: 'mist', label: 'Brumes 9,99 €' },
-      { id: 'lotion', label: 'Laits 12,99 €' },
+      { id: 'lotion', label: 'Laits 9,99 €' },
       ...SCENTS.map((s) => ({ id: s.slug, label: s.name })),
     ];
     qs('[data-picker-filters]', pickerEl).innerHTML = filters.map((f) =>

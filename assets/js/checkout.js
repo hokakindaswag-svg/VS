@@ -32,7 +32,7 @@
   function summary() {
     const items = Cart.items();
     const p = pricing(items);
-    const shipping = p.total >= 25 || !items.length ? 0 : 3.95;
+    const shipping = 0; // livraison toujours offerte
     qs('[data-checkout-summary]').innerHTML = `
       <p class="eyebrow">Ta commande</p>
       ${items.length ? items.map((l) => {

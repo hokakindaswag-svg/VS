@@ -21,7 +21,7 @@ const BRAND = {
 /* --- PRIX ------------------------------------------------------------- */
 const PRICES = {
   mist: 9.99,          // Brume parfumée 250 ml
-  lotion: 12.99,       // Lait parfumé 236 ml
+  lotion: 9.99,        // Lait parfumé 236 ml
   duo: 19.99,          // OFFRE PHARE : 2 produits au choix
 };
 
@@ -186,7 +186,7 @@ const REVIEWS = [
 /* --- INFOS PRODUIT (onglets) ------------------------------------------ */
 const INFO = {
   ingredients: "Alcohol Denat., Aqua, Parfum (Fragrance), Glycerin, Aloe Barbadensis Leaf Juice, Tocopheryl Acetate (Vitamine E), Benzyl Salicylate, Linalool, Limonene. Non testé sur les animaux. Formule vegan.",
-  shipping: "Livraison offerte dès 25 € d’achat. Expédition sous 24 h ouvrées. Colissimo 2–3 jours (3,95 €), Mondial Relay 2–4 jours (2,95 €). Suivi envoyé par e-mail.",
+  shipping: "Livraison offerte, sans minimum d’achat, sur toutes les commandes. Expédition sous 24 h ouvrées, réception en 2 à 4 jours. Suivi envoyé par e-mail.",
   returns: "30 jours pour changer d’avis. Retour gratuit via l’étiquette prépayée incluse dans ton colis. Remboursement sous 5 jours après réception.",
 };
 

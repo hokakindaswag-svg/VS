@@ -7,7 +7,7 @@ Offre centrale : **2 produits au choix pour 19,99 €** (1 produit = 9,99 €).
 
 - 8 parfums × 2 formats = 16 produits
 - Brume parfumée 250 ml — **9,99 €**
-- Lait parfumé 236 ml — **12,99 €**
+- Lait parfumé 236 ml — **9,99 €**
 
 ## Démarrer
 

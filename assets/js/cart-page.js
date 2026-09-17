@@ -69,7 +69,7 @@
       <div class="grid grid-2" data-reco-grid></div>`;
     C.renderProducts(qs('[data-reco-grid]'), recos);
 
-    const shipping = p.total >= 25 ? 0 : 3.95;
+    const shipping = 0; // livraison toujours offerte
     sum.innerHTML = `
       <p class="eyebrow">Récapitulatif</p>
       <div class="row"><span>Sous-total (${p.count} produit${p.count > 1 ? 's' : ''})</span><span>${money(p.subtotal)}</span></div>
