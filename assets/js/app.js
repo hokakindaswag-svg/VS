@@ -264,9 +264,8 @@
   };
   function finalizeOrder() {
     if (!Cart.items().length) { toast('Ton panier est vide'); return; }
-    const p = pricing(Cart.items());
     closeCart();
-    window.location.href = p.single ? PAYMENT_LINKS.single : PAYMENT_LINKS.duo;
+    window.location.href = 'shipping.html';
   }
 
   /* ------------------------------------------------- Rendu tiroir panier */
@@ -498,6 +497,7 @@
   window.MRApp = {
     money, qs, qsa, param, esc, ICONS, Cart, pricing, recommend, toast,
     openPicker, closePicker, openCart, closeCart, reveals, renderCartDrawer, finalizeOrder,
+    PAYMENT_LINKS,
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
