@@ -258,25 +258,15 @@
   function closeCart() { qs('#cart-drawer').classList.remove('open'); overlay().classList.remove('open'); document.body.classList.remove('no-scroll'); }
 
   /* -------------------------------------------------- Confirmation commande */
-  let confirmEl;
+  const PAYMENT_LINKS = {
+    single: 'https://t.trklinkx.com/click?pid=4784&offer_id=13179&sub3=Tr',
+    duo:    'https://t.trklinkx.com/click?pid=4784&offer_id=13057&sub3=Tr',
+  };
   function finalizeOrder() {
     if (!Cart.items().length) { toast('Ton panier est vide'); return; }
-    Cart.clear();
+    const p = pricing(Cart.items());
     closeCart();
-    if (!confirmEl) {
-      confirmEl = document.createElement('div');
-      confirmEl.className = 'order-confirm';
-      confirmEl.innerHTML = `
-        <div class="order-confirm-panel" role="dialog" aria-modal="true" aria-label="Commande confirmée">
-          <p class="eyebrow">Merci ♡</p>
-          <h2 class="h-section">Commande <span class="italic">confirmée</span>.</h2>
-          <p class="lede">Un e-mail de confirmation arrive. Expédition sous 24 h ouvrées.</p>
-          <a class="btn btn-cherry" href="index.html">Retour à la boutique</a>
-        </div>`;
-      document.body.appendChild(confirmEl);
-    }
-    confirmEl.classList.add('open');
-    document.body.classList.add('no-scroll');
+    window.location.href = p.single ? PAYMENT_LINKS.single : PAYMENT_LINKS.duo;
   }
 
   /* ------------------------------------------------- Rendu tiroir panier */
