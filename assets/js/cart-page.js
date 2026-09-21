@@ -76,7 +76,7 @@
       ${p.savings > 0 ? `<div class="row save"><span>Offre 2 pour ${money(PRICES.duo)}</span><span>− ${money(p.savings)}</span></div>` : ''}
       <div class="row"><span>Livraison</span><span>${shipping === 0 ? 'Offerte' : money(shipping)}</span></div>
       <div class="row total"><span>Total</span><span>${money(p.total + shipping)}</span></div>
-      <a class="btn btn-dark btn-block" href="checkout.html" style="margin-top:16px">Passer commande</a>
+      <button class="btn btn-dark btn-block" data-finalize style="margin-top:16px">Passer commande</button>
       <a class="btn btn-ghost btn-block btn-sm" href="boutique.html" style="margin-top:8px">Continuer mes achats</a>
       <p class="tiny" style="text-align:center;margin-top:14px">Paiement sécurisé · Retours gratuits 30 jours</p>`;
   }

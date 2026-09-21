@@ -3,7 +3,7 @@
    ========================================================================= */
 (function () {
   const { PRICES, SCENTS, REVIEWS, INFO, getProduct, getScent, PRODUCTS } = window.MR;
-  const { money, esc, qs, qsa, param, Cart, toast } = window.MRApp;
+  const { money, esc, qs, qsa, param, Cart, toast, finalizeOrder } = window.MRApp;
   const C = window.MRC;
 
   const slug = param('scent') || SCENTS[0].slug;
@@ -85,7 +85,7 @@
       qs('[data-qty]').textContent = qty;
     }));
     qs('[data-buy]').addEventListener('click', () => addToCart());
-    qs('[data-buynow]').addEventListener('click', () => { addToCart({ silentDrawer: true }); location.href = 'checkout.html'; });
+    qs('[data-buynow]').addEventListener('click', () => { addToCart({ silentDrawer: true }); finalizeOrder(); });
   }
 
   function addToCart(opts = {}) {
@@ -110,7 +110,7 @@
     const list = duoRecos();
     const picked = duoPick ? getProduct(duoPick) : null;
     const normal = p.price + (picked ? picked.price : 0);
-    const duoPrice = picked ? Math.min(PRICES.duo, normal) : PRICES.duo;
+    const duoPrice = PRICES.duo;
 
     qs('[data-pdp-duo]').innerHTML = `
       <div class="duo-upsell">

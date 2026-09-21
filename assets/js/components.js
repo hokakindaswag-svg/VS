@@ -180,8 +180,8 @@
       const p2 = state.p2 ? getProduct(state.p2) : null;
       const full = p1 && p2;
       const normal = (p1 ? p1.price : 0) + (p2 ? p2.price : 0);
-      const duo = full ? Math.min(PRICES.duo, normal) : null;
-      const save = full ? normal - duo : 0;
+      const duo = full ? PRICES.duo : null;
+      const save = full ? Math.max(0, normal - duo) : 0;
 
       el.innerHTML = `
 <div class="duo-picker">${slot(1)}${slot(2)}</div>
