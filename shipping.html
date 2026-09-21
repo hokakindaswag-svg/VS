@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Livraison · Maison Rosé</title>
+<meta name="description" content="Dernière étape avant ta commande Maison Rosé.">
+<meta name="theme-color" content="#B02A4E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23B02A4E'/%3E%3Ctext x='16' y='23' font-size='18' font-family='Georgia' fill='%23FDF8F4' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main class="cart-page">
+  <div class="wrap">
+    <h1 class="h-section" style="margin-bottom:8px">Dernière étape <span class="italic">avant l'envoi</span>.</h1>
+    <p class="lede" style="margin-bottom:22px">Indique où on t'envoie ta commande ♡</p>
+    <div class="cart-layout">
+      <div>
+        <div data-ship-lines></div>
+        <form data-ship-form class="ship-form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label class="tiny" for="sh-first">Prénom</label>
+              <input id="sh-first" name="first" type="text" required autocomplete="given-name" placeholder="Ton prénom">
+            </div>
+            <div class="field">
+              <label class="tiny" for="sh-last">Nom</label>
+              <input id="sh-last" name="last" type="text" required autocomplete="family-name" placeholder="Ton nom">
+            </div>
+          </div>
+          <div class="field">
+            <label class="tiny" for="sh-email">E-mail</label>
+            <input id="sh-email" name="email" type="email" required autocomplete="email" placeholder="ton@email.com">
+          </div>
+          <div class="field">
+            <label class="tiny" for="sh-phone">Téléphone mobile</label>
+            <input id="sh-phone" name="phone" type="tel" required autocomplete="tel" value="+33 " placeholder="+33 6 12 34 56 78">
+          </div>
+          <div class="field">
+            <label class="tiny" for="sh-address">Adresse</label>
+            <input id="sh-address" name="address" type="text" required autocomplete="street-address" placeholder="N°, rue">
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="tiny" for="sh-zip">Code postal</label>
+              <input id="sh-zip" name="zip" type="text" required autocomplete="postal-code" inputmode="numeric" placeholder="75001">
+            </div>
+            <div class="field">
+              <label class="tiny" for="sh-city">Ville</label>
+              <input id="sh-city" name="city" type="text" required autocomplete="address-level2" placeholder="Paris">
+            </div>
+          </div>
+          <div class="field">
+            <label class="tiny" for="sh-country">Pays</label>
+            <select id="sh-country" name="country" required autocomplete="country-name">
+              <option value="France" selected>France</option>
+              <option value="Belgique">Belgique</option>
+              <option value="Suisse">Suisse</option>
+              <option value="Luxembourg">Luxembourg</option>
+              <option value="Canada">Canada</option>
+            </select>
+          </div>
+          <button class="btn btn-cherry btn-block" type="submit" style="margin-top:6px">Continuer vers le paiement</button>
+          <p class="tiny" style="text-align:center;margin-top:12px">Paiement sécurisé · Livraison offerte</p>
+        </form>
+      </div>
+      <aside class="summary" data-ship-summary></aside>
+    </div>
+  </div>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/shipping.js"></script>
+</body>
+</html>

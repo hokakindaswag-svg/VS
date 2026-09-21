@@ -534,6 +534,18 @@ p{margin:0}
 .empty h2{font-size:30px;margin-bottom:10px}
 
 /* =========================================================================
+   SHIPPING
+   ========================================================================= */
+.ship-form{display:grid;gap:14px;margin-top:22px}
+.ship-form .field{display:flex;flex-direction:column;gap:6px}
+.ship-form .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ship-form input,.ship-form select{
+  height:52px;border:1px solid var(--line);border-radius:14px;padding:0 16px;
+  background:var(--white);font-size:14px;width:100%;
+}
+.ship-form input:focus,.ship-form select:focus{outline:2px solid var(--cherry);outline-offset:1px}
+
+/* =========================================================================
    BOUTIQUE / FILTRES
    ========================================================================= */
 .shop-head{padding:34px 0 20px;text-align:center}
