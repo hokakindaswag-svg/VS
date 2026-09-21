@@ -214,7 +214,7 @@ const PRODUCTS = SCENTS.flatMap((scent) =>
     size: type.size,
     price: type.price,
     notes: scent.notes,
-    image: scent.image || `assets/img/scents/${scent.slug}-${type.id}.svg`,
+    image: scent.image || `assets/img/scents/${scent.slug}-${type.id}.jpeg`,
     inStock: true,
     eligibleDuo: true,
   }))
