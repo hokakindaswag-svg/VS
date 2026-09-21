@@ -7,7 +7,6 @@
   const el = (s) => qs(s);
 
   C.renderScents(el('[data-scent-grid]'));
-  C.renderMoods(el('[data-mood-grid]'));
   C.renderLayers(el('[data-layer-grid]'));
   C.renderUgc(el('[data-ugc]'));
   C.renderGifts(el('[data-gift-list]'));

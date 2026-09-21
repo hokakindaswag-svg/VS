@@ -117,7 +117,7 @@
   function ugcCard(u, i) {
     return `
 <article class="ugc-card">
-  <img src="assets/img/ugc/ugc-${(i % 6) + 1}.svg" alt="Vidéo ${esc(u.handle)}" loading="lazy" width="600" height="1066">
+  <img src="assets/img/ugc/ugc-${(i % 5) + 1}.jpg" alt="Vidéo ${esc(u.handle)}" loading="lazy" width="600" height="1066">
   <span class="ugc-play">${ICONS.play}</span>
   <span class="ugc-overlay">
     <span class="handle">${esc(u.handle)}</span>
