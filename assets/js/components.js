@@ -100,9 +100,9 @@
     return `
 <article class="layer-card">
   <div class="layer-imgs">
-    <img src="assets/img/scents/${a.slug}-lotion.svg" alt="${esc(a.name)}" loading="lazy" width="900" height="1200">
+    <img src="assets/img/scents/${a.slug}-lotion.jpeg" alt="${esc(a.name)}" loading="lazy" width="900" height="1200">
     <span class="plus">+</span>
-    <img src="assets/img/scents/${b.slug}-mist.svg" alt="${esc(b.name)}" loading="lazy" width="900" height="1200">
+    <img src="assets/img/scents/${b.slug}-mist.jpeg" alt="${esc(b.name)}" loading="lazy" width="900" height="1200">
   </div>
   <div>
     <p class="names">${esc(a.name)} + ${esc(b.name)}</p>
