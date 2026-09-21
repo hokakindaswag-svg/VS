@@ -44,6 +44,10 @@
     add(id, qty = 1, opts = {}) {
       if (!getProduct(id)) return;
       const items = read();
+      const current = items.reduce((n, l) => n + l.qty, 0);
+      const room = ORDER_MAX_UNITS - current;
+      if (room <= 0) { toast(`Maximum ${ORDER_MAX_UNITS} produits par commande — ${money(PRICES.duo)}`); return; }
+      qty = Math.min(qty, room);
       const line = items.find((l) => l.id === id);
       if (line) line.qty += qty; else items.push({ id, qty });
       write(items);
@@ -55,6 +59,11 @@
     },
     addMany(ids) {
       const items = read();
+      const current = items.reduce((n, l) => n + l.qty, 0);
+      if (current + ids.length > ORDER_MAX_UNITS) {
+        toast(`Maximum ${ORDER_MAX_UNITS} produits par commande — ${money(PRICES.duo)}`);
+        return;
+      }
       ids.forEach((id) => {
         if (!getProduct(id)) return;
         const line = items.find((l) => l.id === id);
@@ -66,8 +75,10 @@
     },
     setQty(id, qty) {
       let items = read();
+      const otherUnits = items.filter((l) => l.id !== id).reduce((n, l) => n + l.qty, 0);
+      qty = Math.max(0, Math.min(qty, ORDER_MAX_UNITS - otherUnits));
       if (qty <= 0) items = items.filter((l) => l.id !== id);
-      else { const l = items.find((x) => x.id === id); if (l) l.qty = qty; }
+      else { const l = items.find((x) => x.id === id); if (l) l.qty = qty; else items.push({ id, qty }); }
       write(items);
     },
     remove(id) { Cart.setQty(id, 0); },
@@ -75,9 +86,8 @@
   };
 
   /* -------------------------------------------- Moteur de prix DUO 19,99 */
-  /* Règle : chaque paire de produits éligibles passe à 19,99 €.
-     Le prix d’une paire ne dépasse jamais la somme des deux produits
-     (2 brumes à 9,99 € restent à 19,98 €) — le client n’est jamais perdant. */
+  /* Règle : chaque paire de produits éligibles passe à 19,99 € pile
+     (2 brumes à 9,99 € = 19,98 € normalement, on arrondit à 19,99 €). */
   function pricing(items = Cart.items()) {
     const units = [];
     items.forEach((l) => {
@@ -93,13 +103,17 @@
 
     for (let i = 0; i < eligible.length; i += 2) {
       const a = eligible[i], b = eligible[i + 1];
-      if (b) { total += Math.min(PRICES.duo, a.price + b.price); pairs++; }
+      if (b) { total += PRICES.duo; pairs++; }
       else total += a.price;
     }
     const savings = Math.max(0, subtotal - total);
     const single = eligible.length % 2 === 1;   // un produit « orphelin »
     return { units, subtotal, total, savings, pairs, single, count: units.length };
   }
+
+  /* ------------------------------------------------ Plafond de commande */
+  /* Maximum 2 produits par commande — 19,99 € max. */
+  const ORDER_MAX_UNITS = 2;
 
   /* ---------------------------------------------------------- Suggestions */
   function recommend(limit = 4, excludeIds = []) {
@@ -243,6 +257,28 @@
   function openCart() { renderCartDrawer(); qs('#cart-drawer').classList.add('open'); overlay().classList.add('open'); document.body.classList.add('no-scroll'); }
   function closeCart() { qs('#cart-drawer').classList.remove('open'); overlay().classList.remove('open'); document.body.classList.remove('no-scroll'); }
 
+  /* -------------------------------------------------- Confirmation commande */
+  let confirmEl;
+  function finalizeOrder() {
+    if (!Cart.items().length) { toast('Ton panier est vide'); return; }
+    Cart.clear();
+    closeCart();
+    if (!confirmEl) {
+      confirmEl = document.createElement('div');
+      confirmEl.className = 'order-confirm';
+      confirmEl.innerHTML = `
+        <div class="order-confirm-panel" role="dialog" aria-modal="true" aria-label="Commande confirmée">
+          <p class="eyebrow">Merci ♡</p>
+          <h2 class="h-section">Commande <span class="italic">confirmée</span>.</h2>
+          <p class="lede">Un e-mail de confirmation arrive. Expédition sous 24 h ouvrées.</p>
+          <a class="btn btn-cherry" href="index.html">Retour à la boutique</a>
+        </div>`;
+      document.body.appendChild(confirmEl);
+    }
+    confirmEl.classList.add('open');
+    document.body.classList.add('no-scroll');
+  }
+
   /* ------------------------------------------------- Rendu tiroir panier */
   function renderCartDrawer() {
     const body = qs('[data-cart-body]'), foot = qs('[data-cart-foot]');
@@ -316,7 +352,7 @@
         <span class="tiny">Total</span>
         <span class="amount">${money(p.total)}${p.savings > 0 ? ` <s style="font-size:14px;color:var(--muted)">${money(p.subtotal)}</s>` : ''}</span>
       </div>
-      <a class="btn btn-dark btn-block" href="checkout.html">Passer commande</a>
+      <button class="btn btn-dark btn-block" data-finalize>Passer commande</button>
       <a class="btn btn-ghost btn-block" href="panier.html" style="margin-top:8px">Voir le panier</a>`;
   }
 
@@ -445,6 +481,8 @@
       }
       const rm = e.target.closest('[data-remove]');
       if (rm) Cart.remove(rm.dataset.remove);
+
+      if (e.target.closest('[data-finalize]')) finalizeOrder();
     });
 
     document.addEventListener('keydown', (e) => {
@@ -469,7 +507,7 @@
   /* ------------------------------------------------------------- Exports */
   window.MRApp = {
     money, qs, qsa, param, esc, ICONS, Cart, pricing, recommend, toast,
-    openPicker, closePicker, openCart, closeCart, reveals, renderCartDrawer,
+    openPicker, closePicker, openCart, closeCart, reveals, renderCartDrawer, finalizeOrder,
   };
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);

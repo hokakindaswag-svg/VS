@@ -343,6 +343,19 @@ p{margin:0}
 .pick-item strong{display:block;font-family:var(--serif);font-size:15px;font-weight:500;line-height:1.15}
 .pick-item span{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
 
+/* Confirmation de commande */
+.order-confirm{
+  position:fixed;inset:0;z-index:95;background:rgba(28,21,24,.5);backdrop-filter:blur(3px);
+  opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.order-confirm.open{opacity:1;pointer-events:auto}
+.order-confirm-panel{
+  background:var(--cream);width:100%;max-width:460px;border-radius:18px;padding:44px 30px;text-align:center;
+  transform:scale(.96);transition:transform .35s var(--ease);
+}
+.order-confirm.open .order-confirm-panel{transform:scale(1)}
+.order-confirm-panel .lede{margin:14px auto 26px}
+
 /* =========================================================================
    LAYERING
    ========================================================================= */
