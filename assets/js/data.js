@@ -167,12 +167,11 @@ const GIFTS = [
 
 /* --- UGC / TIKTOK ------------------------------------------------------ */
 const UGC = [
-  { handle: '@camillelpt',  comment: 'la vanille ??? obsédée', likes: '12,4k', scent: 'bare-vanilla' },
-  { handle: '@ninaaa.x',    comment: 'pourquoi ça sent aussi cher', likes: '8,9k', scent: 'pure-seduction' },
-  { handle: '@lou.gtn',     comment: '20 € pour DEUX c\'est abusé', likes: '21,7k', scent: 'love-spell' },
-  { handle: '@sarahbeauty', comment: 'mon nouveau parfum de tous les jours', likes: '5,2k', scent: 'velvet-petals' },
-  { handle: '@maeva.rse',   comment: 'je les collectionne officiellement', likes: '9,8k', scent: 'coconut-passion' },
-  { handle: '@jadeee.mp4',  comment: 'le lait + la brume ensemble = fin du game', likes: '14,1k', scent: 'midnight-bloom' },
+  { handle: '@camillelpt',  comment: 'best odeur de chez VS ♡', likes: '12,4k', scent: 'bare-vanilla' },
+  { handle: '@ninaaa.x',    comment: 'le duo que je recommande à toutes mes copines', likes: '8,9k', scent: 'bare-vanilla' },
+  { handle: '@lou.gtn',     comment: 'Midnight Bloom sent divinement bon', likes: '21,7k', scent: 'midnight-bloom' },
+  { handle: '@sarahbeauty', comment: 'Aqua Kiss = mon parfum d’été non négociable', likes: '5,2k', scent: 'aqua-kiss' },
+  { handle: '@maeva.rse',   comment: 'je les collectionne officiellement', likes: '9,8k', scent: 'bare-vanilla' },
 ];
 
 /* --- AVIS -------------------------------------------------------------- */
